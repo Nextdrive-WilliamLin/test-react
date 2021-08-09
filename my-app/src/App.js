@@ -1,26 +1,29 @@
-import MoButton from "components-modules/dist/MoButton";
-import MoAccordion from "components-modules/dist/MoAccordion";
+import Home from "./views/home"
+import AView from "./views/aview";
+import BView from "./views/bview";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
 function App (){
 
-  const accordionData = [{
-    title: "a",
-    content: <MoButton color="primary">AAAAAAAA</MoButton>
-  },
-    {
-      title: "b",
-      content: <MoButton color="primary">BBBBBB</MoButton>
-    },
-    {
-      title: "c",
-      content: <MoButton color="primary">CCCCCCC</MoButton>
-    }
-  ]
 
   return  (
-      <div>
-        <MoAccordion data={accordionData}></MoAccordion>
-      </div>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/a">
+            <AView></AView>
+          </Route><Route path="/b">
+          <BView></BView>
+        </Route>
+
+        </Switch>
+      </Router>
   )
 }
 
